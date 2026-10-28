@@ -181,7 +181,7 @@
           imgs[cur].classList.add("is-off");
           cur = (cur + 1) % imgs.length;
           imgs[cur].classList.remove("is-off");
-        }, e.type === "memory" ? 6000 : 10000);
+        }, e.type === "memory" ? 6000 : 6000);
       });
     });
   }

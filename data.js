@@ -29,7 +29,7 @@ window.FAMILY = [
   { type: "birthday", name: "Валерий", date: "1963-03-08", photo: "", relation: "", hideAge: true  },
   { type: "birthday", name: "Диана", date: "1989-03-21", photo: "", relation: "", hideAge: true  },
   { type: "birthday", name: "Лена", date: "1989-03-30", photo: "", relation: "", hideAge: true  },
-  { type: "birthday", name: "Анжела", date: "1970-04-02", photo: "photos/angela.jpg", relation: "", hideAge: true },
+  { type: "birthday", name: "Анжела", date: "1970-04-02", photo: ["photos/angela2.jpg","photos/angela.jpg","photos/angela3.jpg"], relation: "", hideAge: true },
   { type: "birthday", name: "Вадим", date: "1979-04-06", photo: "", relation: "", hideAge: true },
   { type: "birthday", name: "Наталья", date: "1986-04-11", photo: "", relation: "", hideAge: true },
   { type: "birthday", name: "Валентина", date: "1967-04-11", photo: ["photos/valea2.jpg","photos/valea3.jpg","photos/valea4.jpg"], relation: "", hideAge: true  },
