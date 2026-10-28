@@ -1,0 +1,274 @@
+@font-face { font-family: "Unbounded"; src: url("fonts/Unbounded-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Unbounded"; src: url("fonts/Unbounded-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Manrope"; src: url("fonts/Manrope-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Manrope"; src: url("fonts/Manrope-ExtraBold.woff2") format("woff2"); font-weight: 800; font-display: swap; }
+
+:root {
+  --bg: #FBF6EE;
+  --paper: #FFFFFF;
+  --ink: #2B2320;
+  --muted: #7C706A;
+  --line: #EDE3D6;
+  --coral: #E86A4E;
+  --coral-deep: #C2492F;
+  --sun: #F2B33D;
+  --sage: #6E9A72;
+  --slate: #6C6A80;
+  --slate-bg: #EFEDF3;
+  --radius: 28px;
+  --shadow: 0 1px 2px rgba(60, 40, 20, .05), 0 12px 40px -12px rgba(60, 40, 20, .18);
+  --head: "Unbounded", system-ui, sans-serif;
+  /* Ночная страница под салютом; карточки остаются светлыми */
+  --night: #140F12;
+  --on-night: #F6EEE6;
+  --on-night-muted: rgba(246, 238, 230, .72);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; background: var(--bg); }
+html.has-video { background: var(--night); }
+html.aqua { --night: #06182B; }
+body {
+  margin: 0;
+  background: transparent;
+  color: var(--ink);
+  font: 400 16px/1.55 "Manrope", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+b { font-weight: 800; }
+
+.wrap { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 768px) { .wrap { padding: 0 32px; } }
+
+/* Видео-фон (класс на <html> ставит app.js):
+   .salut — салют в день рождения, .aqua — аквариум в обычные дни; в день памяти видео нет.
+   Видео на всю высоту страницы, прокручивается вместе с ней. */
+body { position: relative; min-height: 100vh; }
+.bg { display: none; }
+.has-video .bg {
+  display: block;
+  position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+  background: var(--night) center top / cover no-repeat;
+}
+.salut .bg { background-image: url("video/salut.jpg"); }
+.aqua .bg { background-image: url("video/aqua.jpg?v=2"); }
+.bg__video { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+/* На телефоне страница очень длинная — растянутый на неё ролик стал бы мыльным, поэтому фон на экран и стоит на месте */
+@media (max-width: 819px) {
+  .has-video .bg { position: fixed; inset: auto; left: 0; top: 0; width: 100%; height: 100lvh; }
+}
+.bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(20, 15, 18, .1), rgba(20, 15, 18, .3)); }
+/* Аквариум светлее салюта — затемняем сильнее, особенно к светлому песку внизу */
+.aqua .bg::after { background: linear-gradient(rgba(4, 16, 32, .35), rgba(4, 16, 32, .6)); }
+
+/* Текст прямо на тёмном фоне — светлый */
+.has-video .logo, .has-video .h2, .has-video .next__when { color: var(--on-night); }
+.has-video .top__today, .has-video .next__label, .has-video .legend, .has-video .foot { color: var(--on-night-muted); }
+@media (prefers-reduced-motion: reduce) { .bg__video { display: none; } }
+
+#confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; }
+
+/* ——— Шапка ——— */
+.top { padding: 20px 0; }
+.top__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.logo { font: 600 18px/1.2 var(--head); letter-spacing: -.01em; display: flex; align-items: center; gap: 10px; }
+.logo::before {
+  content: ""; width: 28px; height: 28px; border-radius: 9px; flex: none;
+  background: radial-gradient(circle at 50% 66%, var(--bg) 0 4px, transparent 4.5px), linear-gradient(var(--coral-deep) 0 30%, var(--coral) 30%);
+}
+.top__today { color: var(--muted); font-size: 15px; }
+
+/* Режим просмотра другого дня — яркая полоса, прилипает к верху, чтобы не спутать с «сегодня» */
+.preview-bar {
+  position: sticky; top: 0; z-index: 40;
+  background: var(--coral); color: #fff; font-size: 15px; padding: 10px 0;
+  box-shadow: 0 6px 20px -8px rgba(60, 40, 20, .45);
+}
+.preview-bar__inner { display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; }
+.preview-bar__btn {
+  flex: none; background: #fff; color: var(--coral-deep); font-weight: 800; font-size: 15px;
+  padding: 9px 16px; border-radius: 99px; white-space: nowrap; transition: transform .15s;
+}
+.preview-bar__btn:hover { transform: translateY(-1px); }
+@media (max-width: 599px) { .preview-bar__btn { width: 100%; text-align: center; } }
+
+.h2 { font: 600 clamp(22px, 3vw, 30px)/1.15 var(--head); letter-spacing: -.02em; margin: 0 0 20px; }
+
+/* ——— Главный блок ——— */
+.hero { display: grid; gap: 20px; padding-top: 12px; padding-bottom: 56px; }
+
+.card {
+  position: relative;
+  display: grid; gap: 28px; align-items: center;
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+@media (min-width: 820px) {
+  .card { grid-template-columns: minmax(280px, 400px) 1fr; gap: 56px; padding: 36px 56px 36px 36px; }
+}
+
+.hero--festive .card::before {
+  content: ""; position: absolute; right: -120px; top: -120px; width: 420px; height: 420px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 179, 61, .22), transparent 70%);
+  pointer-events: none;
+}
+.hero--festive .card--anniversary::before { background: radial-gradient(circle, rgba(110, 154, 114, .2), transparent 70%); }
+
+.card__photo { position: relative; }
+.card__body { position: relative; }
+
+.eyebrow {
+  display: inline-block; font-weight: 800; font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--coral-deep); background: #FDEBE5; padding: 6px 12px; border-radius: 99px; margin-bottom: 18px;
+}
+.card--anniversary .eyebrow { color: #3F6B45; background: #E7F0E6; }
+.card--memory .eyebrow { color: var(--slate); background: #fff; }
+
+.card__name { font: 600 clamp(34px, 6vw, 64px)/1.02 var(--head); letter-spacing: -.03em; margin: 0; }
+.card__sub { color: var(--muted); font-size: 17px; margin-top: 10px; }
+.card__big {
+  font: 600 clamp(26px, 4vw, 40px)/1.1 var(--head); letter-spacing: -.02em; color: var(--coral); margin-top: 22px;
+}
+.card--anniversary .card__big { color: var(--sage); }
+.card__text { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; margin: 18px 0 0; max-width: 34em; }
+
+/* Несколько поводов в один день — карточки рядом, чтобы на первом экране были видны все */
+@media (min-width: 820px) {
+  .hero--many { grid-template-columns: 1fr 1fr; }
+  .hero--many .next { grid-column: 1 / -1; }
+  .hero--many { gap: 28px; }
+  .hero--many .card { grid-template-columns: 1fr; align-content: start; gap: 28px; padding: 32px 32px 40px; }
+  /* Фото не выше, чем позволяет окно: имя и поздравление должны помещаться на первом экране */
+  .hero--many .card__photo { width: 100%; max-width: clamp(200px, calc(100svh - 450px), 520px); }
+  .hero--many .card__name { font-size: clamp(36px, 4.2vw, 60px); }
+  .hero--many .card__text { font-size: clamp(17px, 1.4vw, 20px); }
+}
+@media (max-width: 819px) {
+  .hero--many { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .hero--many .next { grid-column: 1 / -1; }
+  .hero--many .card { grid-template-columns: 1fr; align-content: start; gap: 14px; padding: 12px 12px 16px; border-radius: 20px; }
+  .hero--many .card__photo { margin: 0; padding: 6px 6px 18px; border-radius: 16px; }
+  .hero--many .ava--xl { border-radius: 12px; font-size: 52px; }
+  .hero--many .card__photo { width: 100%; }
+  .hero--many .ava--anniversary.ava--xl { font-size: 34px; }
+  .hero--many .eyebrow { font-size: 10px; letter-spacing: .05em; padding: 4px 8px; margin-bottom: 8px; }
+  .hero--many .card__name { font-size: 21px; overflow-wrap: anywhere; }
+  .hero--many .card__sub { font-size: 13px; margin-top: 4px; }
+  .hero--many .card__big { font-size: 17px; margin-top: 6px; }
+  .hero--many .card__text { font-size: 14px; line-height: 1.45; margin-top: 6px; }
+  .hero--many .candle { width: 22px; height: 40px; right: 6px; bottom: 4px; }
+}
+
+/* Память — спокойно */
+.card--memory { background: var(--slate-bg); box-shadow: none; }
+.card--memory .card__name { color: #45435A; }
+.card--memory .card__big { color: var(--slate); }
+.card--memory .card__text { color: #55536A; font-style: italic; }
+
+.candle { position: absolute; right: 14px; bottom: 10px; width: 34px; height: 62px; }
+.candle rect { fill: #FAF6EC; }
+.candle path { stroke: #5a5560; }
+.candle__flame { fill: var(--sun); stroke: none !important; transform-origin: 20px 30px; animation: flicker 2.6s ease-in-out infinite; }
+@keyframes flicker { 0%, 100% { transform: scale(1) rotate(-1deg); } 45% { transform: scale(.94, 1.06) rotate(2deg); } 70% { transform: scale(1.04, .96) rotate(-2deg); } }
+
+/* Ближайший праздник, когда сегодня ничего нет */
+.next { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .5em; }
+.next__label { color: var(--muted); font-size: clamp(17px, 1.8vw, 20px); }
+.next__when { font: 500 clamp(22px, 3vw, 30px)/1.2 var(--head); letter-spacing: -.02em; }
+.next__when span { color: var(--coral); font-weight: 600; }
+.hero--next .card { box-shadow: none; border: 1px solid var(--line); }
+
+/* ——— Аватары ——— */
+.ava {
+  --h: 20;
+  position: relative; display: inline-grid; place-items: center; flex: none;
+  width: 40px; height: 40px; border-radius: 50%; overflow: hidden;
+  background: linear-gradient(140deg, hsl(var(--h) 65% 64%), hsl(calc(var(--h) + 25) 60% 50%));
+  color: #fff; font: 600 15px/1 var(--head);
+}
+.ava img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* Несколько фото у именинника — плавно сменяют друг друга */
+.ava--xl img { transition: opacity 1.2s ease; }
+.ava--xl img.is-off { opacity: 0; }
+.ava--memory { background: linear-gradient(140deg, #BEBCCB, #8E8BA2); }
+.ava--memory img { filter: grayscale(1) contrast(.95); }
+.ava--sm { width: 28px; height: 28px; font-size: 11px; }
+.ava--md { width: 48px; height: 48px; font-size: 17px; }
+.ava--xl {
+  width: 100%; height: auto; aspect-ratio: 1; border-radius: 22px;
+  font-size: clamp(64px, 14vw, 140px); letter-spacing: -.04em;
+}
+.ava--anniversary { font-size: 11px; letter-spacing: -.04em; }
+.ava--anniversary.ava--md { font-size: 13px; }
+.ava--anniversary.ava--sm { font-size: 8px; }
+.ava--anniversary.ava--xl { font-size: clamp(52px, 11vw, 110px); }
+
+/* Фото-«полароид» в праздник */
+.hero--festive .card__photo, .hero--next .card__photo {
+  background: #fff; padding: 12px 12px 44px; border-radius: 26px;
+  box-shadow: 0 2px 4px rgba(60, 40, 20, .06), 0 18px 36px -14px rgba(60, 40, 20, .3);
+  transform: rotate(-2.5deg);
+}
+.hero--festive .card:nth-child(even) .card__photo { transform: rotate(2deg); }
+.hero--next .card__photo { transform: rotate(-1.5deg); }
+@media (max-width: 819px) {
+  .card__photo { max-width: 340px; width: 100%; margin: 8px auto 0; }
+}
+
+/* ——— Скоро ——— */
+.soon { padding-bottom: 64px; }
+.soon__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+@media (min-width: 820px) { .soon__list { grid-template-columns: 1fr 1fr; gap: 12px 16px; } }
+.soon__item a {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--paper); border-radius: 20px; padding: 12px 18px 12px 12px;
+  border: 1px solid var(--line); transition: border-color .2s, transform .2s;
+}
+.soon__item a:hover { border-color: #DCCDBA; transform: translateY(-1px); }
+.soon__item--memory a { background: var(--slate-bg); border-color: transparent; }
+.soon__info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.soon__info b { font-size: 16px; line-height: 1.3; }
+.soon__info small, .soon__when small { color: var(--muted); font-size: 14px; }
+.soon__when { text-align: right; display: flex; flex-direction: column; flex: none; }
+.soon__when b { font-size: 15px; }
+.soon__item:first-child .soon__when small { color: var(--coral-deep); font-weight: 800; }
+
+/* ——— Календарь ——— */
+.year { padding-bottom: 56px; }
+.year__head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px 24px; flex-wrap: wrap; margin-bottom: 20px; }
+.year__head .h2 { margin: 0; }
+.legend { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; color: var(--muted); font-size: 14px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-left: 10px; }
+.dot:first-child { margin-left: 0; }
+.dot--birthday { background: var(--coral); }
+.dot--anniversary { background: var(--sage); }
+.dot--memory { background: var(--slate); }
+
+.months { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 600px) { .months { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .months { grid-template-columns: repeat(4, 1fr); } }
+
+.month { background: var(--paper); border-radius: 22px; padding: 18px 14px 12px; border: 1px solid var(--line); }
+.month--current { border-color: var(--coral); box-shadow: 0 0 0 1px var(--coral); }
+.month__name { font: 600 15px/1 var(--head); text-transform: capitalize; margin: 0 4px 12px; display: flex; justify-content: space-between; align-items: center; }
+.month__name em { font: 800 11px/1 "Manrope", sans-serif; font-style: normal; text-transform: uppercase; letter-spacing: .08em; color: #fff; background: var(--coral); padding: 5px 8px; border-radius: 99px; }
+.month__list { list-style: none; margin: 0; padding: 0; }
+.month__empty { color: #B9ADA2; font-size: 14px; margin: 0 4px 6px; }
+
+.mday a { display: flex; align-items: center; gap: 10px; padding: 6px; border-radius: 12px; transition: background .15s; }
+.mday a:hover { background: var(--bg); }
+.mday__num { width: 22px; flex: none; text-align: right; font-weight: 800; font-size: 14px; font-variant-numeric: tabular-nums; }
+.mday__name { font-size: 14px; line-height: 1.25; flex: 1; min-width: 0; }
+.mday a::after { content: ""; width: 7px; height: 7px; border-radius: 50%; flex: none; background: var(--coral); }
+.mday--anniversary a::after { background: var(--sage); }
+.mday--memory a::after { background: var(--slate); }
+.mday--memory .mday__name { color: var(--slate); }
+/* .mday.is-past { opacity: .45; } */
+.mday.is-today a { background: #FDEBE5; }
+
+.foot { color: var(--muted); font-size: 14px; padding-bottom: 40px; }
+.empty { color: var(--muted); }

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Семейный календарь</title>
+  <meta name="description" content="Дни рождения, годовщины и памятные даты нашей семьи — чтобы никто не забыл поздравить своих.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Наша большая семья — семейный календарь">
+  <meta property="og:description" content="Дни рождения, годовщины и памятные даты — чтобы никто не забыл поздравить своих.">
+  <meta property="og:url" content="https://calendar-3fz.pages.dev/">
+  <meta property="og:image" content="https://calendar-3fz.pages.dev/og/og-square-ru-2.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1200">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='6' width='26' height='23' rx='6' fill='%23E86A4E'/%3E%3Crect x='3' y='6' width='26' height='8' rx='4' fill='%23C2492F'/%3E%3Ccircle cx='16' cy='21' r='4' fill='%23FBF6EE'/%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/Unbounded-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=11">
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <video class="bg__video" autoplay muted loop playsinline preload="none"></video>
+  </div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <header class="top">
+    <div class="wrap top__inner">
+      <a class="logo" href="./" id="site-title">Семейный календарь</a>
+      <div class="top__today" id="today-label"></div>
+    </div>
+  </header>
+
+  <div class="preview-bar" id="preview-bar" hidden>
+    <div class="wrap preview-bar__inner">
+      <span>Вы смотрите <b id="preview-date"></b> — так будет выглядеть главная в этот день</span>
+      <a class="preview-bar__btn" href="./">← Вернуться к сегодня</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero wrap" id="hero" aria-live="polite"></section>
+
+    <section class="soon wrap" id="soon-section">
+      <h2 class="h2">Скоро</h2>
+      <ol class="soon__list" id="soon"></ol>
+    </section>
+
+    <section class="year wrap" id="calendar">
+      <div class="year__head">
+        <h2 class="h2">Календарь на год</h2>
+        <div class="legend">
+          <span class="dot dot--birthday"></span>день рождения
+          <span class="dot dot--anniversary"></span>годовщина
+          <span class="dot dot--memory"></span>память
+        </div>
+      </div>
+      <div class="months" id="months"></div>
+    </section>
+  </main>
+
+  <footer class="foot wrap">Нажмите на любую дату в календаре, чтобы посмотреть, как будет выглядеть главная в этот день.</footer>
+
+  <script src="data.js?v=2"></script>
+  <script src="app.js?v=6"></script>
+</body>
+</html>
