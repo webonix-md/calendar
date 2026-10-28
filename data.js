@@ -36,32 +36,36 @@ window.FAMILY = [
   { type: "birthday", name: "Валерия", date: "2018-04-14", photo: ["photos/lera.jpg","photos/lera2.jpg","photos/lera3.jpg"], relation: "" },
   { type: "birthday", name: "Олег", date: "1965-05-11", photo: ["photos/oleg-bol.jpg","photos/oleg-bol2.jpg","photos/oleg-bol3.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Максим", date: "1987-05-26", photo: ["photos/maksim.jpg","photos/maksim2.jpg","photos/maksim3.jpg"], relation: "", hideAge: true  },
+  { type: "birthday", name: "Руслан", date: "1999-06-22", photo: "photos/ruslan.jpg", relation: "" },
   { type: "birthday", name: "Артем", date: "2015-06-24", photo: "", relation: "" },
-  { type: "birthday", name: "Лана", date: "1988-07-02", photo: "", relation: "", hideAge: true  },
+  { type: "birthday", name: "Лана", date: "1992-07-02", photo: "", relation: "", hideAge: true  },
   { type: "birthday", name: "Вадим", date: "1988-07-04", photo: "", relation: "", hideAge: true  },
   { type: "birthday", name: "Олег", date: "1973-07-12", photo: "", relation: "", hideAge: true  },
   { type: "birthday", name: "Игорь", date: "1973-07-12", photo: "", relation: "", hideAge: true  },
-  { type: "birthday", name: "Мария", date: "1973-07-15", photo: "", relation: "", hideAge: true  },
-  { type: "birthday", name: "Кристина", date: "2010-07-18", photo: "", relation: "" },
-  { type: "birthday", name: "Алина", date: "2010-07-18", photo: "", relation: "" },
+  { type: "birthday", name: "Мария", date: "1999-07-15", photo: "", relation: "", hideAge: true  },
+  { type: "birthday", name: "Кристина", date: "2011-07-18", photo: "", relation: "" },
+  { type: "birthday", name: "Алина", date: "2011-07-18", photo: "", relation: "" },
   { type: "birthday", name: "Светлана", date: "1974-07-22", photo: "", relation: "", hideAge: true  },
-  { type: "birthday", name: "Анюта", date: "2026-07-31", photo: "photos/aniuta.jpg", relation: "", hideAge: true  },
+  { type: "birthday", name: "Анюта", date: "2026-07-31", photo: ["photos/aniuta2.jpg","photos/aniuta.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Бабушка Мария", date: "1937-08-28", photo: "photos/babuska-maria.JPG", relation: "Самая мудрая бабушка" },
   { type: "birthday", name: "Злата", date: "2012-09-06", photo: ["photos/zlata.jpg","photos/zlata3.jpg","photos/zlata4.jpg"], relation: "" },
   { type: "birthday", name: "Бабушка Мила", date: "1950-09-09", photo: ["photos/babuska-mila.jpg","photos/babuska-mila2.jpg"], relation: "" },
-  { type: "birthday", name: "Сережа", date: "1987-09-22", photo: "photos/sereja.jpg", relation: "", hideAge: true  },
+  { type: "birthday", name: "Сережа", date: "1987-09-21", photo: "photos/sereja.jpg", relation: "", hideAge: true  },
   { type: "birthday", name: "Александра", date: "2010-10-18", photo: ["photos/sasha.jpg","photos/sasha2.jpg","photos/sasha3.jpg"], relation: "" },
   { type: "birthday", name: "Инна", date: "1974-10-28", photo: ["photos/inna.jpg","photos/inna4.jpg","photos/inna5.jpg","photos/inna6.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Андрей", date: "1987-10-28", photo: ["photos/andrei.jpg","photos/andrei2.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Юлия", date: "1997-12-06", photo: ["photos/iulia.jpg","photos/iulia3.jpg","photos/iulia6.jpg"], relation: "", hideAge: true  },
- 
+
 
   // ——— Годовщины свадеб ———
 
+  { type: "anniversary", name: "Диана и Сережа", date: "2018-02-24", photo: "", relation: "" },
   { type: "anniversary", name: "Людмила и Валерий", date: "1985-06-15", photo: "", relation: "" },
+  { type: "anniversary", name: "Лена и Максим", date: "2009-06-15", photo: "", relation: "" },
   { type: "anniversary", name: "Мария и Руслан", date: "2025-07-09", photo: "photos/masharuslan.jpg", relation: "" },
-  { type: "anniversary", name: "Светлана и Олег", date: "1998-09-04", photo: "" },
+  { type: "anniversary", name: "Светлана и Олег", date: "1998-09-04", photo: "photos/svetaoleg.jpg" },
   { type: "anniversary", name: "Наталья и Вадим", date: "2014-09-04", photo: "" },
+  { type: "anniversary", name: "Валентина и Олег", date: "1987-09-27", photo: "" },
   
 
   // ——— Памятные даты ———

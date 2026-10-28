@@ -5,6 +5,7 @@
   var GREET = window.GREETINGS || {};
   var SITE = window.SITE || {};
   var MONTHS = ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"];
+  var MONTHS_IN = ["январе", "феврале", "марте", "апреле", "мае", "июне", "июле", "августе", "сентябре", "октябре", "ноябре", "декабре"];
   var WEDDINGS = {
     1: "ситцевая", 2: "бумажная", 3: "кожаная", 4: "льняная", 5: "деревянная", 6: "чугунная",
     7: "медная", 8: "жестяная", 9: "фаянсовая", 10: "оловянная", 11: "стальная", 12: "никелевая",
@@ -263,11 +264,31 @@
       .sort(function (a, b) { return a.days - b.days || ORDER[a.e.type] - ORDER[b.e.type]; });
   }
 
-  // ——— «Скоро» ———
+  // ——— «Скоро» (до конца месяца) и «В следующем месяце» ———
   function renderSoon(shown) {
     var skip = shown.map(function (e) { return e.id; });
-    var list = sortedUpcoming().filter(function (u) { return skip.indexOf(u.e.id) < 0; }).slice(0, 8);
-    document.getElementById("soon").innerHTML = list.map(function (u) {
+    var all = sortedUpcoming().filter(function (u) { return skip.indexOf(u.e.id) < 0; });
+    var nextStart = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+    var nextEnd = new Date(today.getFullYear(), today.getMonth() + 2, 1);
+    var thisMonth = all.filter(function (u) { return u.occ < nextStart; });
+    var nextMonth = all.filter(function (u) { return u.occ >= nextStart && u.occ < nextEnd; });
+
+    var later = all.filter(function (u) { return u.occ >= nextEnd; }).slice(0, 1);
+    var curGen = fmt(today).split(" ")[1];
+
+    var html = '<h2 class="h2">Скоро</h2>' +
+      (thisMonth.length ? soonList(thisMonth) : '<p class="soon__empty">До конца ' + curGen + " праздников больше нет</p>");
+    html += '<h2 class="h2 soon__title-next">В следующем месяце <span>' + MONTHS[nextStart.getMonth()] + "</span></h2>";
+    if (nextMonth.length) {
+      html += soonList(nextMonth);
+    } else {
+      html += '<p class="soon__empty">В ' + MONTHS_IN[nextStart.getMonth()] + " праздников нет" + (later.length ? ". Следующий:" : "") + "</p>" + (later.length ? soonList(later) : "");
+    }
+    document.getElementById("soon-section").innerHTML = html;
+  }
+
+  function soonList(list) {
+    return '<ol class="soon__list">' + list.map(function (u) {
       return (
         '<li class="soon__item soon__item--' + u.e.type + '">' +
           '<a href="?date=' + iso(u.occ) + '">' +
@@ -277,7 +298,7 @@
           "</a>" +
         "</li>"
       );
-    }).join("");
+    }).join("") + "</ol>";
   }
 
   // ——— Календарь на год ———
