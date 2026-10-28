@@ -59,6 +59,7 @@ window.FAMILY = [
   // ——— Годовщины свадеб ———
 
   { type: "anniversary", name: "Людмила и Валерий", date: "1985-06-15", photo: "", relation: "" },
+  { type: "anniversary", name: "Мария и Руслан", date: "2025-07-09", photo: "photos/masharuslan.jpg", relation: "" },
   { type: "anniversary", name: "Светлана и Олег", date: "1998-09-04", photo: "" },
   { type: "anniversary", name: "Наталья и Вадим", date: "2014-09-04", photo: "" },
   
