@@ -266,8 +266,8 @@
 
   // ——— «Скоро» (до конца месяца) и «В следующем месяце» ———
   function renderSoon(shown) {
-    var skip = shown.map(function (e) { return e.id; });
-    var all = sortedUpcoming().filter(function (u) { return skip.indexOf(u.e.id) < 0; });
+    // Сегодняшние сюда не попадают (days > 0), а «ближайший» из главного блока остаётся в списке своего месяца
+    var all = sortedUpcoming();
     var nextStart = new Date(today.getFullYear(), today.getMonth() + 1, 1);
     var nextEnd = new Date(today.getFullYear(), today.getMonth() + 2, 1);
     var thisMonth = all.filter(function (u) { return u.occ < nextStart; });
