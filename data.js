@@ -48,7 +48,7 @@ window.FAMILY = [
   { type: "birthday", name: "Светлана", date: "1974-07-22", photo: "", relation: "", hideAge: true  },
   { type: "birthday", name: "Анюта", date: "2026-07-31", photo: ["photos/aniuta2.jpg","photos/aniuta.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Бабушка Мария", date: "1937-08-28", photo: "photos/babuska-maria.JPG", relation: "Самая мудрая бабушка" },
-  { type: "birthday", name: "Злата", date: "2012-09-06", photo: ["photos/zlata.jpg","photos/zlata3.jpg","photos/zlata4.jpg","photos/zlata5.jpg","photos/zlata5.jpg"], relation: "" },
+  { type: "birthday", name: "Злата", date: "2012-09-06", photo: ["photos/zlata.jpg","photos/zlata3.jpg","photos/zlata4.jpg","photos/zlata5.jpg","photos/zlata6.jpg"], relation: "" },
   { type: "birthday", name: "Бабушка Мила", date: "1950-09-09", photo: ["photos/babuska-mila.jpg","photos/babuska-mila2.jpg"], relation: "" },
   { type: "birthday", name: "Сережа", date: "--09-21", photo: ["photos/sereja.jpg","photos/sereja2.jpg","photos/sereja3.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Александра", date: "2010-10-18", photo: ["photos/sasha.jpg","photos/sasha2.jpg","photos/sasha3.jpg"], relation: "" },
