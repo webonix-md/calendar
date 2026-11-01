@@ -271,6 +271,9 @@ body { position: relative; min-height: 100vh; }
 .mday--anniversary a::after { background: var(--sage); }
 .mday--memory a::after { background: var(--slate); }
 .mday--memory .mday__name { color: var(--slate); }
+.mday--memory a { background: #ECEAF1; margin: 2px 0; }
+.mday--memory a:hover { background: #E2DFEA; }
+.mday--memory .mday__num { color: var(--slate); }
 /* .mday.is-past { opacity: .45; } */
 .mday.is-today a { background: #FDEBE5; }
 

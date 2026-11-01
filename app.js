@@ -254,8 +254,12 @@
     return sameDay.map(function (u) { return u.e; });
   }
 
+  // День рождения ушедшего не анонсируем заранее (ни «ближайшим», ни в «Скоро») — только в сам день; в календаре он есть
+  function onlyOnTheDay(e) { return e.type === "memory" && e.kind === "birth"; }
+
   function sortedUpcoming() {
     return events
+      .filter(function (e) { return !onlyOnTheDay(e); })
       .map(function (e) {
         var occ = nextOccurrence(e, today);
         return { e: e, occ: occ, days: daysBetween(today, occ) };
