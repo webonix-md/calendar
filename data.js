@@ -14,6 +14,11 @@
   greeting:  своё поздравление. Пусто — возьмётся случайное из списка GREETINGS
   hideAge:   true — не показывать возраст / число лет
 
+  newborn:   только что родившийся малыш — первые 10 дней на главной «Встречайте!»
+             с разрывающейся обёрткой и мультяшной мордашкой, потом обычный день рождения.
+             newborn: { weight: "3 450 г", height: "52 см" }  (можно newborn: {} без веса и роста)
+             Посмотреть заранее: допишите к адресу сайта ?demo=baby
+
   Только для type: "memory":
   kind:      "passing" — день памяти, "birth" — день рождения ушедшего человека
   years:     годы жизни для подписи, например "1938 — 2015"
@@ -56,6 +61,9 @@ window.FAMILY = [
   { type: "birthday", name: "Андрей", date: "1987-10-28", photo: ["photos/andrei.jpg","photos/andrei2.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Олеся", date: "--11-29", photo: "", relation: "", hideAge: true  },
   { type: "birthday", name: "Юлия", date: "1997-12-06", photo: ["photos/iulia.jpg","photos/iulia3.jpg","photos/iulia6.jpg"], relation: "", hideAge: true  },
+
+  // Малыш: когда родится — уберите // в начале строки и впишите имя, дату, вес и рост
+  { type: "birthday", name: "Алан", date: "2026-11-08", photo: "", relation: "Сын Ланы и Николая", newborn: { weight: "4 150 г", height: "54 см" } },
 
 
   // ——— Годовщины свадеб ———
