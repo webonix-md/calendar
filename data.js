@@ -80,7 +80,7 @@ window.FAMILY = [
 
   // ——— Памятные даты ———
   { type: "memory", kind: "birth", name: "Дедушка Илья", date: "1940-04-28", photo: "photos/papa.jpg", years: "1940 — 2000" },
-  { type: "memory", kind: "birth", name: "Дедушка Костя", date: "1949-11-14", photo: "photos/konstantin.jpg", years: "1948 — 2024" },
+  { type: "memory", kind: "birth", name: "Дедушка Костя", date: "1949-11-14", photo: "photos/konstantin.jpg", years: "1949 — 2024" },
   
 ];
 
