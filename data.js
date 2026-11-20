@@ -50,7 +50,7 @@ window.FAMILY = [
   { type: "birthday", name: "Мария", date: "--07-15", photo: ["photos/masha2.jpg","photos/masha.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Кристина", date: "2011-07-18", photo: "", relation: "" },
   { type: "birthday", name: "Алина", date: "2011-07-18", photo: "", relation: "" },
-  { type: "birthday", name: "Светлана", date: "--07-22", photo: "photos/sveta.jpg", relation: "", hideAge: true  },
+  { type: "birthday", name: "Светлана", date: "--07-22", photo: "photos/sveta2.jpg", relation: "", hideAge: true  },
   { type: "birthday", name: "Анюта", date: "2026-07-31", photo: ["photos/aniuta2.jpg","photos/aniuta.jpg","photos/aniuta3.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Бабушка Мария", date: "1937-08-28", photo: "photos/babuska-maria.JPG", relation: "Самая мудрая бабушка" },
   { type: "birthday", name: "Злата", date: "2012-09-06", photo: ["photos/zlata.jpg","photos/zlata3.jpg","photos/zlata4.jpg","photos/zlata5.jpg","photos/zlata6.jpg"], relation: "" },
