@@ -31,7 +31,7 @@ window.SITE = {
 window.FAMILY = [
   // ——— Дни рождения ———
   { type: "birthday", name: "Людмила", date: "--03-05", photo: "", relation: "", hideAge: true  },
-  { type: "birthday", name: "Валерий", date: "--03-08", photo: ["photos/valera3.jpg","photos/valera2.jpg","photos/valera.jpg"], relation: "", hideAge: true  },
+  { type: "birthday", name: "Валерий", date: "--03-08", photo: ["photos/valera3.jpg","photos/valera2.jpg","photos/valera4.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Диана", date: "--03-21", photo: ["photos/diana.jpg","photos/diana2.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Лена", date: "--03-30", photo: ["photos/lena.jpg","photos/lena2.jpg","photos/lena3.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Анжела", date: "--04-02", photo: ["photos/angela2.jpg","photos/angela.jpg","photos/angela3.jpg"], relation: "", hideAge: true },
