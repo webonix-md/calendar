@@ -70,7 +70,8 @@ window.FAMILY = [
 
   { type: "anniversary", name: "Диана и Сережа", date: "2018-02-24", photo: "photos/dianasereja.jpg", relation: "" },
   { type: "anniversary", name: "Людмила и Валерий", date: "1985-06-15", photo: "", relation: "" },
-  { type: "anniversary", name: "Лена и Максим", date: "2009-06-15", photo: "", relation: "" },
+  { type: "anniversary", name: "Лена и Максим", date: "2009-06-15", photo: ["photos/lena.jpg","photos/maksim.jpg"], relation: "" },
+  { type: "anniversary", name: "Олеся и Вадим", date: "2009-06-26", photo: ["photos/vadim-t.jpg","photos/vadim-t2.jpg","photos/vadim-t3.jpg","photos/olesea4.jpg"], relation: "" },
   { type: "anniversary", name: "Мария и Руслан", date: "2025-07-09", photo: "photos/masharuslan.jpg", relation: "" },
   { type: "anniversary", name: "Юлия и Андрей", date: "2025-08-08", photo: "photos/iuliaandrei.jpg", relation: "" },
   { type: "anniversary", name: "Светлана и Олег", date: "1998-09-04", photo: "photos/svetaoleg.jpg" },
