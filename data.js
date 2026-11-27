@@ -30,8 +30,8 @@ window.SITE = {
 
 window.FAMILY = [
   // ——— Дни рождения ———
-  { type: "birthday", name: "Людмила", date: "--03-05", photo: "", relation: "", hideAge: true  },
-  { type: "birthday", name: "Валерий", date: "--03-08", photo: ["photos/valera3.jpg","photos/valera2.jpg","photos/valera4.jpg"], relation: "", hideAge: true  },
+  { type: "birthday", name: "Людмила", date: "--03-05", photo: ["photos/liuda.jpg","photos/liuda2.jpg","photos/liuda3.jpg","photos/liuda4.jpg"], relation: "", hideAge: true  },
+  { type: "birthday", name: "Валерий", date: "--03-08", photo: ["photos/valera4.jpg","photos/valera3.jpg","photos/valera5.jpg","photos/valera6.jpg","photos/valera2.jpg","photos/valera8.jpg","photos/valera7.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Диана", date: "--03-21", photo: ["photos/diana.jpg","photos/diana2.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Лена", date: "--03-30", photo: ["photos/lena.jpg","photos/lena2.jpg","photos/lena3.jpg"], relation: "", hideAge: true  },
   { type: "birthday", name: "Анжела", date: "--04-02", photo: ["photos/angela2.jpg","photos/angela.jpg","photos/angela3.jpg"], relation: "", hideAge: true },
@@ -69,7 +69,7 @@ window.FAMILY = [
   // ——— Годовщины свадеб ———
 
   { type: "anniversary", name: "Диана и Сережа", date: "2018-02-24", photo: "photos/dianasereja.jpg", relation: "" },
-  { type: "anniversary", name: "Людмила и Валерий", date: "1985-06-15", photo: "", relation: "" },
+  { type: "anniversary", name: "Людмила и Валерий", date: "1985-06-15", photo: ["photos/liudavalera.jpg","photos/liudavalera2.jpg","photos/liudavalera3.jpg"], relation: "" },
   { type: "anniversary", name: "Лена и Максим", date: "2009-06-15", photo: ["photos/lena.jpg","photos/maksim.jpg"], relation: "" },
   { type: "anniversary", name: "Олеся и Вадим", date: "2009-06-26", photo: ["photos/vadim-t.jpg","photos/vadim-t2.jpg","photos/vadim-t3.jpg","photos/olesea4.jpg"], relation: "" },
   { type: "anniversary", name: "Мария и Руслан", date: "2025-07-09", photo: "photos/masharuslan.jpg", relation: "" },
