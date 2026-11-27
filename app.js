@@ -95,6 +95,12 @@
   }
   function greeting(e, occ) {
     if (e.greeting) return e.greeting;
+    // Годовщины: поздравление по числу лет вместе (GREETINGS.anniversaryByYears в data.js)
+    var n = e.type === "anniversary" && e.year ? occ.getFullYear() - e.year : 0;
+    if (n > 0 && GREET.anniversaryByYears) {
+      var fit = GREET.anniversaryByYears.filter(function (t) { return n >= t.from; }).pop();
+      if (fit) return fit.text;
+    }
     var pool = GREET[e.type] || [];
     if (!pool.length) return "";
     return pool[hash(e.name + occ.getFullYear()) % pool.length];
